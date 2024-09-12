@@ -56,6 +56,7 @@ start_contraception_interaction = {
 				is_courtier_of = scope:actor
 			}
 			has_trait = prostitute
+			can_have_children = yes
 			NOT = { has_character_modifier = contraception }
 		}
 	}

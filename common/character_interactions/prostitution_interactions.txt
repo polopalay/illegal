@@ -67,8 +67,8 @@
 				modifier = { add = -5 scope:recipient = { has_trait = giant } }
 				modifier = { add = -5 scope:recipient = { has_trait = weak } }
 				modifier = { add = -5 scope:recipient = { has_trait = dull } }
-				modifier = { add = -5 scope:recipient = { age >= 30 } }
-				modifier = { add = -50 scope:recipient = { age >= 40 } }
+				modifier = { add = -5 scope:recipient = { age >= 30 is_immortal = no } }
+				modifier = { add = -50 scope:recipient = { age >= 40 is_immortal = no } }
 				modifier = { add = 10 scope:recipient = { has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier } }
 				pay_short_term_gold = { target = scope:recipient gold = 2 }
 			}
@@ -76,11 +76,11 @@
 	}
 
 	ai_accept = {
-		base = 50
+		base = 25
 		opinion_modifier = {
 			opinion_target = scope:actor
 			who = scope:recipient
-			multiplier = 1
+			multiplier = 0.1
 		}
 		modifier = { add = -5 scope:actor = { has_trait = beauty_bad_1 } }
 		modifier = { add = -10 scope:actor = { has_trait = beauty_bad_2 } }
@@ -162,8 +162,8 @@
 		modifier = { add = -5 scope:recipient = { has_trait = giant } }
 		modifier = { add = -5 scope:recipient = { has_trait = weak } }
 		modifier = { add = -5 scope:recipient = { has_trait = dull } }
-		modifier = { add = -5 scope:recipient = { age >= 30 } }
-		modifier = { add = -50 scope:recipient = { age >= 40 } }
+		modifier = { add = -5 scope:recipient = { age >= 30 is_immortal = no } }
+		modifier = { add = -50 scope:recipient = { age >= 40 is_immortal = no } }
 		modifier = { add = 10 scope:recipient = { has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier } }
 	}
 }
@@ -250,8 +250,8 @@ offer_prostitute_interaction = {
 				modifier = { add = -5 scope:secondary_recipient = { has_trait = giant } }
 				modifier = { add = -5 scope:secondary_recipient = { has_trait = weak } }
 				modifier = { add = -5 scope:secondary_recipient = { has_trait = dull } }
-				modifier = { add = -5 scope:secondary_recipient = { age >= 30 } }
-				modifier = { add = -50 scope:secondary_recipient = { age >= 40 } }
+				modifier = { add = -5 scope:secondary_recipient = { age >= 30 is_immortal = no } }
+				modifier = { add = -50 scope:secondary_recipient = { age >= 40 is_immortal = no } }
 				modifier = { add = 10 scope:secondary_recipient = { has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier } }
 				pay_short_term_gold = { target = scope:secondary_recipient gold = 2 }
 			}
@@ -291,13 +291,13 @@ offer_prostitute_interaction = {
 		modifier = { add = -5 scope:secondary_recipient = { has_trait = giant } }
 		modifier = { add = -5 scope:secondary_recipient = { has_trait = weak } }
 		modifier = { add = -5 scope:secondary_recipient = { has_trait = dull } }
-		modifier = { add = -5 scope:secondary_recipient = { age >= 30 } }
-		modifier = { add = -50 scope:secondary_recipient = { age >= 40 } }
-		modifier = { add = 50 scope:secondary_recipient = { has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier } }
+		modifier = { add = -5 scope:secondary_recipient = { age >= 30 is_immortal = no } }
+		modifier = { add = -50 scope:secondary_recipient = { age >= 40 is_immortal = no } }
+		modifier = { add = 10 scope:secondary_recipient = { has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier } }
 		opinion_modifier = {
 			opinion_target = scope:secondary_recipient
 			who = scope:recipient
-			multiplier = 1
+			multiplier = 0.1
 		}
 	}
 	ai_potential = { always = yes }

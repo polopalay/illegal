@@ -133,7 +133,7 @@ buy_slave_interaction = {
 		}
 		modifier = {
 			trigger = { scope:secondary_recipient = { is_close_family_of = scope:actor } }
-			add = 25
+			add = 40
 		}
 		modifier = {
 			trigger = { scope:secondary_recipient = { has_relation_friend = scope:actor } }
@@ -183,6 +183,26 @@ sell_slave_interaction = {
 		opinion_modifier = {
 			opinion_target = scope:actor
 			multiplier = 1
+		}
+		modifier = {
+			trigger = { scope:secondary_recipient = { is_spouse_of = scope:secondary_recipient } }
+			add = 50
+		}
+		modifier = {
+			trigger = { scope:secondary_recipient = { is_close_family_of = scope:secondary_recipient } }
+			add = 40
+		}
+		modifier = {
+			trigger = { scope:secondary_recipient = { has_relation_friend = scope:secondary_recipient } }
+			add = 10
+		}
+		modifier = {
+			trigger = { scope:secondary_recipient = { has_relation_lover = scope:secondary_recipient } }
+			add = 10
+		}
+		modifier = {
+			trigger = { scope:secondary_recipient = { has_relation_soulmate = scope:secondary_recipient } }
+			add = 100
 		}
 	}
 	ai_frequency = 12
@@ -294,6 +314,7 @@ forced_labor_interaction = {
 		scope:recipient = {
 			has_trait = slave
 			NOT = { has_character_modifier = forced_labor }
+			is_adult = yes
 		}
 	}
 	auto_accept = yes
@@ -383,6 +404,7 @@ extortion_interaction = {
 
 	is_shown = {
 		scope:recipient = {
+			is_adult = yes
 			has_trait = slave
 			gold > 0
 		}
