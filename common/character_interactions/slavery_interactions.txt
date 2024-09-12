@@ -24,12 +24,8 @@
 	ai_will_do = {
 		base = 0
 
-		opinion_modifier = {
-			opinion_target = scope:recipient
-			multiplier = -1
-		}
-
 		ai_value_modifier = {
+			max = 5
 			ai_compassion = -1
 		}
 		modifier = {
@@ -43,6 +39,12 @@
 		modifier = {
 			add = -25
 			is_close_family_of = scope:recipient
+		}
+		modifier = {
+			add = -25
+			any_dynasty_member = {
+				primary_heir = scope:recipient
+			}
 		}
 		modifier = {
 			add = 50
