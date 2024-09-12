@@ -452,6 +452,10 @@ start_prostitution_interaction = {
 			}
 		}
 		modifier = {
+			add = -25
+			scope:actor = { has_trait = chaste }
+		}
+		modifier = {
 			add = 5
 			scope:actor = { has_trait = lustful }
 		}
