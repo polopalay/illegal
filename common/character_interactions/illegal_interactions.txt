@@ -1,0 +1,93 @@
+﻿naked_interaction = {
+	desc = naked_interaction.desc
+	auto_accept = yes
+	use_diplomatic_range = yes
+	ignores_pending_interaction_block = yes
+	category = interaction_category_friendly
+	is_shown = {
+		OR = {
+			scope:actor = scope:recipient
+			scope:recipient = { is_courtier_of = scope:actor }
+		}
+		scope:recipient = {
+			has_trait = prostitute
+			NOT = { has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier }
+		}
+	}
+	on_accept = {
+		scope:recipient = {
+			add_character_modifier = diplomacy_majesty_4090_no_raiment_modifier
+		}
+	}
+}
+
+dress_interaction = {
+	desc = dress_interaction.desc
+	auto_accept = yes
+	use_diplomatic_range = yes
+	ignores_pending_interaction_block = yes
+	category = interaction_category_friendly
+	is_shown = {
+		OR = {
+			scope:actor = scope:recipient
+			scope:recipient = { is_courtier_of = scope:actor }
+		}
+		scope:recipient = {
+			has_trait = prostitute
+			has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier
+		}
+	}
+	on_accept = {
+		scope:recipient = {
+			remove_character_modifier = diplomacy_majesty_4090_no_raiment_modifier
+		}
+	}
+}
+
+start_contraception_interaction = {
+	desc = start_contraception_interaction.desc
+    	category = interaction_category_friendly
+    	use_diplomatic_range = yes
+
+	is_shown = {
+		scope:recipient = {
+			OR = {
+				scope:actor = scope:recipient
+				is_courtier_of = scope:actor
+			}
+			has_trait = prostitute
+			NOT = { has_character_modifier = contraception }
+		}
+	}
+
+	on_accept = {
+		scope:recipient = {
+			add_character_modifier = contraception
+		}
+	}
+	auto_accept = { always = yes }
+}
+
+stop_contraception_interaction = {
+	desc = stop_contraception_interaction.desc
+    	category = interaction_category_friendly
+    	use_diplomatic_range = yes
+
+	is_shown = {
+		scope:recipient = {
+			OR = {
+				scope:actor = scope:recipient
+				is_courtier_of = scope:actor
+			}
+			has_character_modifier = contraception
+		}
+	}
+
+	on_accept = {
+		scope:recipient = {
+			remove_character_modifier = contraception
+		}
+	}
+	auto_accept = { always = yes }
+}
+

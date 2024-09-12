@@ -1,0 +1,8 @@
+﻿l_english:
+ trait_slave: "Slave"
+ trait_slave_desc: "This character is the property of another person, recognized by law to be less than a human being."
+ trait_slave_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] is the property of another person, recognized by law to be less than a human being."
+
+ trait_prostitute: "Prostitute"
+ trait_prostitute_desc: "This character sells their body for money."
+ trait_prostitute_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] sells body for money."

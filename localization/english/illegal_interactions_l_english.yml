@@ -1,0 +1,48 @@
+﻿l_english:
+ prostitute_interaction: "Prostituting"
+ prostitute_interaction.desc: "Request [recipient.GetShortUIName] to provide sexual services"
+
+ offer_prostitute_interaction: "Offer Prostituting"
+ offer_prostitute_interaction.desc: "Offer [recipient.GetShortUIName] sexual services"
+ recipient_secondary_offer_prostitute_interaction: "Choose one"
+
+ start_prostitution_interaction: "Start Prostitution"
+ start_prostitution_interaction.desc: "Force [recipient.GetShortUINameNoTooltip] to earn [gold|E] for you as a prostitute"
+
+ stop_prostitution_interaction: "Stop Prostitution"
+ stop_prostitution_interaction.desc: "Stop forcing [recipient.GetShortUINameNoTooltip] to earn [gold|E] for you as a prostitute"
+
+ enslave_interaction: "Enslave"
+ enslave_interaction.desc: "Turn [recipient.GetShortUINameNoTooltip] into your slave"
+
+ buy_slave_interaction: "Buy Slave"
+ buy_slave_interaction.desc: "Browse all available slaves for sale"
+ recipient_secondary_buy_slave_interaction: "Choose one"
+
+ sell_slave_interaction: "Sell Slave"
+ sell_slave_interaction.desc: "Sell [recipient.GetShortUINameNoTooltip] as a slave"
+ recipient_secondary_sell_slave_interaction: "Choose one"
+
+ free_slave_interaction: "Free Slave"
+ free_slave_interaction.desc: "Free [recipient.GetShortUINameNoTooltip] from slavery"
+
+ forced_labor_interaction: "Forced Labor"
+ forced_labor_interaction.desc: "[recipient.GetShortUINameNoTooltip] was forced to work too hard"
+
+ ordinary_labor_interaction: "Ordinary Labor"
+ ordinary_labor_interaction.desc: "[recipient.GetShortUIName] is working in a moderate manner suitable for health"
+
+ extortion_interaction: "Extort"
+ extortion_interaction.desc: "Extort [recipient.GetShortUINameNoTooltip] for [gold|E]"
+
+ naked_interaction: "Naked"
+ naked_interaction.desc: "[recipient.GetShortUIName] removes all clothing"
+
+ dress_interaction: "Dress"
+ dress_interaction.desc: "[recipient.GetShortUIName] puts on all clothing"
+
+ start_contraception_interaction: "Start Contraception"
+ start_contraception_interaction.desc: "Start using contraception to prevent pregnancy"
+
+ stop_contraception_interaction: "Stop Contraception"
+ stop_contraception_interaction.desc: "Stop using contraception to prevent pregnancy"
