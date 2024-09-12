@@ -225,7 +225,10 @@ invite_to_court_interaction = {
 					exists = host
 					host = scope:actor
 				}
-				has_trait = slave
+				AND = {
+					exists = liege
+					has_trait = slave
+				}
 				is_ruler = yes
 			}
 		}

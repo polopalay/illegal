@@ -258,7 +258,7 @@ free_slave_interaction = {
 	is_shown = {
 		scope:recipient = {
 			has_trait = slave
-			is_courtier = scope:actor
+			is_courtier_of = scope:actor
 		}
 	}
 
@@ -314,6 +314,7 @@ forced_labor_interaction = {
 		scope:recipient = {
 			has_trait = slave
 			NOT = { has_character_modifier = forced_labor }
+			is_courtier_of = scope:actor
 			is_adult = yes
 		}
 	}
@@ -360,6 +361,7 @@ ordinary_labor_interaction = {
 		scope:recipient = {
 			has_trait = slave
 			has_character_modifier = forced_labor
+			is_courtier_of = scope:actor
 		}
 	}
 	auto_accept = yes
@@ -406,6 +408,7 @@ extortion_interaction = {
 		scope:recipient = {
 			is_adult = yes
 			has_trait = slave
+			is_courtier_of = scope:actor
 			gold > 0
 		}
 	}

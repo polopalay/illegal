@@ -82,6 +82,7 @@
 			who = scope:recipient
 			multiplier = 0.1
 		}
+		modifier = { add = -10 scope:recipient = { has_trait = chaste } }
 		modifier = { add = -5 scope:actor = { has_trait = beauty_bad_1 } }
 		modifier = { add = -10 scope:actor = { has_trait = beauty_bad_2 } }
 		modifier = { add = -20 scope:actor = { has_trait = beauty_bad_3 } }
@@ -130,6 +131,7 @@
 	ai_will_do = {
 		base = 0
 		modifier = { add = 10 scope:actor = { stress_level >= 1 } }
+		modifier = { add = -10 scope:actor = { has_trait = chaste } }
 		modifier = { add = 1 scope:actor = { has_trait = lustful } }
 		modifier = { add = 1 scope:actor = { has_trait = rakish } }
 		modifier = { add = -20 scope:recipient = { is_close_family_of = scope:actor } }
@@ -260,6 +262,7 @@ offer_prostitute_interaction = {
 
 	ai_accept = {
 		base = 5
+		modifier = { add = -10 scope:recipient = { has_trait = chaste } }
 		modifier = { add = 15 scope:recipient = { has_trait = lustful } }
 		modifier = { add = 15 scope:recipient = { has_trait = rakish } }
 		modifier = { add = 5 scope:secondary_recipient = { has_trait = beauty_good_1 } }
@@ -429,6 +432,7 @@ start_prostitution_interaction = {
 			who = scope:recipient
 			multiplier = 1
 		}
+		modifier = { add = -50 scope:recipient = { has_trait = chaste } }
 	}
 
 	ai_frequency = 12
