@@ -185,23 +185,23 @@ sell_slave_interaction = {
 			multiplier = 1
 		}
 		modifier = {
-			trigger = { scope:secondary_recipient = { is_spouse_of = scope:secondary_recipient } }
+			trigger = { scope:secondary_recipient = { is_spouse_of = scope:recipient } }
 			add = 50
 		}
 		modifier = {
-			trigger = { scope:secondary_recipient = { is_close_family_of = scope:secondary_recipient } }
+			trigger = { scope:secondary_recipient = { is_close_family_of = scope:recipient } }
 			add = 40
 		}
 		modifier = {
-			trigger = { scope:secondary_recipient = { has_relation_friend = scope:secondary_recipient } }
+			trigger = { scope:secondary_recipient = { has_relation_friend = scope:recipient } }
 			add = 10
 		}
 		modifier = {
-			trigger = { scope:secondary_recipient = { has_relation_lover = scope:secondary_recipient } }
+			trigger = { scope:secondary_recipient = { has_relation_lover = scope:recipient } }
 			add = 10
 		}
 		modifier = {
-			trigger = { scope:secondary_recipient = { has_relation_soulmate = scope:secondary_recipient } }
+			trigger = { scope:secondary_recipient = { has_relation_soulmate = scope:recipient } }
 			add = 100
 		}
 	}
