@@ -29,11 +29,11 @@
 		}
 		if = {
 			limit = { is_female = yes }
-				random = { chance = 25 add_character_flag = { flag = face_cum days = 10 } }
-				random = { chance = 25 add_character_flag = { flag = body_cum days = 10 } }
-				random = { chance = 25 add_character_flag = { flag = ass_cum days = 10 } }
-				random = { chance = 25 add_character_flag = { flag = pussy_cum days = 10 } }
-				add_character_modifier = { modifier = recently_had_sex months = 12 }
+			random = { chance = 25 add_character_flag = { flag = face_cum days = 10 } }
+			random = { chance = 25 add_character_flag = { flag = body_cum days = 10 } }
+			random = { chance = 25 add_character_flag = { flag = ass_cum days = 10 } }
+			random = { chance = 25 add_character_flag = { flag = pussy_cum days = 10 } }
+			add_character_modifier = { modifier = recently_had_sex months = 12 }
 		}
 		else = {
 			$CHARACTER$ = {
@@ -44,7 +44,7 @@
 				add_character_modifier = { modifier = recently_had_sex months = 12 }
 			}
 		}
-		
+
 		risk_of_std_from_effect = { PARTNER = $CHARACTER$ }
 		hidden_effect = { $CHARACTER$ = { risk_of_std_from_effect = { PARTNER = scope:had_sex_root_character } } }
 	}

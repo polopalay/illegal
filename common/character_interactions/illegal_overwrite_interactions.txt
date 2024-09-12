@@ -60,19 +60,19 @@
 			}
 		}
 	}
-	
+
 	on_accept = {
 		scope:actor = {
 			stress_impact = {
 				gregarious = minor_stress_impact_gain
 				compassionate = minor_stress_impact_gain
 			}
-			
+
 			hidden_effect = {
 				send_interface_message = {
 					type = event_generic_neutral
 					title = msg_kicked_courtier_from_court_interaction_title
-					
+
 					right_icon = scope:recipient
 
 					show_as_tooltip = {
@@ -81,8 +81,8 @@
 						}
 					}
 
-			   		#Remove them as guardian/ward for any courtier
-			   		if = {
+					#Remove them as guardian/ward for any courtier
+					if = {
 						limit = {
 							any_courtier = {
 								has_relation_guardian = scope:recipient
@@ -134,7 +134,7 @@
 			#To be able to send a cohesive interface message AND show a good tooltip
 			show_as_tooltip = {
 				#Remove them as guardian for any child
-		   		if = {
+				if = {
 					limit = {
 						any_courtier = {
 							has_relation_guardian = scope:recipient
@@ -213,9 +213,9 @@
 invite_to_court_interaction = {
 	category = interaction_category_vassal
 	icon = guest
-	
+
 	desc = invite_to_court_interaction_desc
-	
+
 	is_shown = {
 		scope:recipient = {
 			NOR = {
@@ -237,7 +237,7 @@ invite_to_court_interaction = {
 			RECRUITEE = scope:recipient
 		}
 	}
-	
+
 	#Pay som gold to persuade a wandering character to come to your court
 	send_option = {
 		is_shown = {
@@ -272,7 +272,7 @@ invite_to_court_interaction = {
 					send_interface_message = {
 						type = event_generic_neutral
 						title = msg_courtier_left_court_interaction_title
-						
+
 						right_icon = scope:recipient
 
 						show_as_tooltip = {
@@ -282,7 +282,7 @@ invite_to_court_interaction = {
 				}
 			}
 		}
-		
+
 		scope:actor = {
 			send_interface_message = {
 				type = event_generic_neutral
@@ -312,8 +312,8 @@ invite_to_court_interaction = {
 				}
 			}
 		}
-		
-		
+
+
 		if = {
 			limit = { always = scope:cover_travel_expenses }
 			scope:actor = {
@@ -332,193 +332,193 @@ invite_to_court_interaction = {
 	}
 
 	ai_accept = {
- 		base = -50
+		base = -50
 
- 		#Opinions
- 		opinion_modifier = {
- 			trigger = {
- 				exists = liege
- 				is_courtier_of = liege
- 			}
- 			opinion_target = liege
- 			multiplier = -0.5
- 			step = 5
- 			max = 25
- 		}
- 		opinion_modifier = {
- 			opinion_target = scope:actor
- 			multiplier = 0.5
- 			step = 5
- 			max = 25
- 		}
+		#Opinions
+		opinion_modifier = {
+			trigger = {
+				exists = liege
+				is_courtier_of = liege
+			}
+			opinion_target = liege
+			multiplier = -0.5
+			step = 5
+			max = 25
+		}
+		opinion_modifier = {
+			opinion_target = scope:actor
+			multiplier = 0.5
+			step = 5
+			max = 25
+		}
 
- 		#Current roles
- 		modifier = {
- 			is_knight = yes
- 			add = -20
- 			desc = AI_MY_LIEGES_KNIGHT
- 		}
- 		modifier = {
- 			is_commanding_army = yes
- 			add = -30
- 			desc = AI_MY_LIEGES_COMMANDER
- 		}
- 		modifier = {
- 			is_councillor = yes
- 			add = -40
- 			desc = AI_ON_THE_COUNCIL
- 		}
-		
-		modifier = {		
-			trigger = { scope:recipient = { has_court_position = court_physician_court_position } }			
- 			add = -20
- 			desc = AI_COURT_PHYSICIAN
- 		}
+		#Current roles
+		modifier = {
+			is_knight = yes
+			add = -20
+			desc = AI_MY_LIEGES_KNIGHT
+		}
+		modifier = {
+			is_commanding_army = yes
+			add = -30
+			desc = AI_MY_LIEGES_COMMANDER
+		}
+		modifier = {
+			is_councillor = yes
+			add = -40
+			desc = AI_ON_THE_COUNCIL
+		}
 
- 		#Relations & relatives (with actor)
- 		modifier = {
- 			has_relation_lover = scope:actor
- 			add = 100
- 			desc = AI_YOUR_LOVER
- 		}
+		modifier = {
+			trigger = { scope:recipient = { has_court_position = court_physician_court_position } }
+			add = -20
+			desc = AI_COURT_PHYSICIAN
+		}
 
- 		modifier = {
- 			has_relation_friend = scope:actor
- 			add = 75
- 			desc = AI_YOUR_FRIEND
- 		}
+		#Relations & relatives (with actor)
+		modifier = {
+			has_relation_lover = scope:actor
+			add = 100
+			desc = AI_YOUR_LOVER
+		}
 
- 		modifier = {
- 			is_child_of = scope:actor
- 			add = 160
- 			desc = AI_YOUR_CHILD
- 		}
+		modifier = {
+			has_relation_friend = scope:actor
+			add = 75
+			desc = AI_YOUR_FRIEND
+		}
 
- 		modifier = {
- 			this.dynasty.dynast = scope:actor
- 			add = 30
- 			desc = AI_YOU_ARE_THE_DYNAST
- 		}
+		modifier = {
+			is_child_of = scope:actor
+			add = 160
+			desc = AI_YOUR_CHILD
+		}
 
- 		modifier = {
- 			this.house.house_head = scope:actor
- 			add = 30
- 			desc = AI_YOU_ARE_THE_HOUSE_HEAD
- 		}
+		modifier = {
+			this.dynasty.dynast = scope:actor
+			add = 30
+			desc = AI_YOU_ARE_THE_DYNAST
+		}
 
- 		modifier = {
- 			NOT = { is_child_of = scope:actor }
- 			is_close_family_of = scope:actor
- 			add = 75
- 			desc = AI_YOUR_RELATIVE
- 		}
+		modifier = {
+			this.house.house_head = scope:actor
+			add = 30
+			desc = AI_YOU_ARE_THE_HOUSE_HEAD
+		}
 
- 		modifier = {
- 			is_spouse_of = scope:actor
- 			add = 160
- 			desc = AI_YOUR_SPOUSE
- 		}
+		modifier = {
+			NOT = { is_child_of = scope:actor }
+			is_close_family_of = scope:actor
+			add = 75
+			desc = AI_YOUR_RELATIVE
+		}
 
- 		#Relations & relatives (with host)
- 		modifier = {
- 			exists = liege
- 			has_relation_lover = liege
- 			add = -100
- 			desc = AI_THEIR_LOVER
- 		}
+		modifier = {
+			is_spouse_of = scope:actor
+			add = 160
+			desc = AI_YOUR_SPOUSE
+		}
 
- 		modifier = {
- 			exists = liege
- 			has_relation_friend = liege
- 			add = -75
- 			desc = AI_THEIR_FRIEND
- 		}
+		#Relations & relatives (with host)
+		modifier = {
+			exists = liege
+			has_relation_lover = liege
+			add = -100
+			desc = AI_THEIR_LOVER
+		}
 
- 		modifier = {
- 			exists = liege
- 			is_child_of = liege
- 			add = -160
- 			desc = AI_THEIR_CHILD
- 		}
+		modifier = {
+			exists = liege
+			has_relation_friend = liege
+			add = -75
+			desc = AI_THEIR_FRIEND
+		}
 
- 		modifier = {
- 			exists = liege
- 			NOT = { is_child_of = liege }
- 			is_close_family_of = liege
- 			add = -75
- 			desc = AI_THEIR_RELATIVE
- 		}
+		modifier = {
+			exists = liege
+			is_child_of = liege
+			add = -160
+			desc = AI_THEIR_CHILD
+		}
 
- 		#Family (at location)
- 		modifier = {
- 			exists = location
- 			any_consort_not_in_traveling_family_trigger = yes
- 			desc = AI_LEAVING_MY_SPOUSE
- 			add = -100
- 		}
+		modifier = {
+			exists = liege
+			NOT = { is_child_of = liege }
+			is_close_family_of = liege
+			add = -75
+			desc = AI_THEIR_RELATIVE
+		}
 
- 		modifier = {
- 			exists = location
- 			any_child_not_in_traveling_family_trigger = yes
- 			desc = AI_LEAVING_MY_CHILD
- 			add = -100
- 		}
+		#Family (at location)
+		modifier = {
+			exists = location
+			any_consort_not_in_traveling_family_trigger = yes
+			desc = AI_LEAVING_MY_SPOUSE
+			add = -100
+		}
 
- 		modifier = {
- 			add = -50
- 			desc = AI_MARRIED_MATRILINIALLY
- 			is_married = yes
- 			is_male = yes
- 			any_spouse = {
- 				matrilinear_marriage = yes
- 				host = scope:recipient.host
- 			}
- 		}
+		modifier = {
+			exists = location
+			any_child_not_in_traveling_family_trigger = yes
+			desc = AI_LEAVING_MY_CHILD
+			add = -100
+		}
 
- 		modifier = {
- 			add = -50
- 			desc = AI_MARRIED_PATRILINIALLY
- 			is_married = yes
- 			is_female = yes
- 			any_spouse = {
- 				patrilinear_marriage = yes
- 				host = scope:recipient.host
- 			}
- 		}
+		modifier = {
+			add = -50
+			desc = AI_MARRIED_MATRILINIALLY
+			is_married = yes
+			is_male = yes
+			any_spouse = {
+				matrilinear_marriage = yes
+				host = scope:recipient.host
+			}
+		}
 
- 		modifier = {
- 			add = -50
- 			desc = AI_INSPIRED
- 			exists = inspiration
+		modifier = {
+			add = -50
+			desc = AI_MARRIED_PATRILINIALLY
+			is_married = yes
+			is_female = yes
+			any_spouse = {
+				patrilinear_marriage = yes
+				host = scope:recipient.host
+			}
+		}
+
+		modifier = {
+			add = -50
+			desc = AI_INSPIRED
+			exists = inspiration
 			inspiration = {
 				NOT = {
 					exists = inspiration_sponsor
 				}
 			}
- 		}
+		}
 
- 		modifier = {
- 			add = -500
- 			desc = AI_SPONSORED_INSPIRATION
- 			exists = inspiration
+		modifier = {
+			add = -500
+			desc = AI_SPONSORED_INSPIRATION
+			exists = inspiration
 			inspiration = {
 				exists = inspiration_sponsor
 			}
- 		}
+		}
 
- 		modifier = {
- 			add = -500
- 			desc = AI_WANDERLUST
+		modifier = {
+			add = -500
+			desc = AI_WANDERLUST
 			is_child_of = scope:actor
- 			has_character_modifier = lust_for_adventure
- 		}
-		
+			has_character_modifier = lust_for_adventure
+		}
+
 		#Wandering characters (who aren't doing anything else)
 		modifier = {
- 			add = {
+			add = {
 				value = 10
 				add = scope:actor.diplomacy
-				
+
 				if = {
 					limit = {
 						faith = scope:actor.faith
@@ -562,8 +562,8 @@ invite_to_court_interaction = {
 					add = 10
 				}
 			}
- 			desc = AI_CAN_BE_PERSUADED_TO_STAY
-			
+			desc = AI_CAN_BE_PERSUADED_TO_STAY
+
 			is_pool_guest = no
 			location.province_owner = {
 				OR = {
@@ -577,8 +577,8 @@ invite_to_court_interaction = {
 				is_child_of = scope:actor
 				has_character_modifier = lust_for_adventure
 			}
- 		}
-		
+		}
+
 		modifier = {
 			add = {
 				value = 20
@@ -599,51 +599,51 @@ invite_to_court_interaction = {
 			desc = AI_TRAVEL_EXPENSES
 		}
 
- 		# Amenities impact
- 		## Actor's amenities increases acceptance
- 		modifier = {
- 			add = {
- 				value = 10
- 				if = {
- 					limit = {
- 						scope:actor = {
-			 				has_royal_court = yes
-			 				amenity_level = { type = court_lodging_standards value >=  high_amenity_level }
-			 			}
- 					}
- 			 		add = 10
- 				}
- 				if = {
- 					limit = {
- 						scope:actor = {
-			 				amenity_level = { type = court_lodging_standards value >=  very_high_amenity_level }
-			 			}
- 					}
- 			 		add = 10
- 				}
- 				if = {
- 					limit = {
- 						scope:actor = {
-			 				amenity_level = { type = court_lodging_standards value >=  max_amenity_level }
-			 			}
- 					}
- 			 		add = 20
- 				}
- 			}
- 			desc = AI_COURT_LODGING_STANDARDS_QUALITY
+		# Amenities impact
+		## Actor's amenities increases acceptance
+		modifier = {
+			add = {
+				value = 10
+				if = {
+					limit = {
+						scope:actor = {
+							has_royal_court = yes
+							amenity_level = { type = court_lodging_standards value >=  high_amenity_level }
+						}
+					}
+					add = 10
+				}
+				if = {
+					limit = {
+						scope:actor = {
+							amenity_level = { type = court_lodging_standards value >=  very_high_amenity_level }
+						}
+					}
+					add = 10
+				}
+				if = {
+					limit = {
+						scope:actor = {
+							amenity_level = { type = court_lodging_standards value >=  max_amenity_level }
+						}
+					}
+					add = 20
+				}
+			}
+			desc = AI_COURT_LODGING_STANDARDS_QUALITY
 			scope:actor = {
-			 	has_royal_court = yes
+				has_royal_court = yes
 				amenity_level = { type = court_lodging_standards value >=  medium_amenity_level }
 			}
- 		}
-		## Target's liege amenities decreases acceptance 
- 		modifier = {
- 			add = {
- 				value = -10
+		}
+		## Target's liege amenities decreases acceptance
+		modifier = {
+			add = {
+				value = -10
 				if = {
 					limit = {
 						liege = {
-							amenity_level = { type = court_lodging_standards value >=  high_amenity_level } 
+							amenity_level = { type = court_lodging_standards value >=  high_amenity_level }
 						}
 					}
 					add = -10
@@ -651,7 +651,7 @@ invite_to_court_interaction = {
 				if = {
 					limit = {
 						liege = {
-							amenity_level = { type = court_lodging_standards value >=  very_high_amenity_level } 
+							amenity_level = { type = court_lodging_standards value >=  very_high_amenity_level }
 						}
 					}
 					add = -10
@@ -659,27 +659,27 @@ invite_to_court_interaction = {
 				if = {
 					limit = {
 						liege = {
-							amenity_level = { type = court_lodging_standards value >=  max_amenity_level } 
+							amenity_level = { type = court_lodging_standards value >=  max_amenity_level }
 						}
 					}
 					add = -20
 				}
- 			}
- 			desc = AI_LIEGE_COURT_LODGING_STANDARDS_QUALITY
+			}
+			desc = AI_LIEGE_COURT_LODGING_STANDARDS_QUALITY
 			exists = liege
 			is_courtier_of = liege
 			liege = {
 				has_royal_court = yes
 				amenity_level = { type = court_lodging_standards value >=  medium_amenity_level }
 			}
- 		}
-		
- 		modifier = {
- 			add = {
+		}
+
+		modifier = {
+			add = {
 				value = scope:actor.house.house_unity_value
 				multiply = 0.5
 			}
- 			desc = AI_HOUSE_UNITY
+			desc = AI_HOUSE_UNITY
 			scope:actor = { government_has_flag = government_is_clan }
 			exists = house
 			exists = scope:actor.house
@@ -690,7 +690,7 @@ invite_to_court_interaction = {
 					has_house_unity_stage = friendly
 				}
 			}
- 		}
+		}
 	}
 
 	auto_accept = {

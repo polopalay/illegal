@@ -7,16 +7,16 @@ adopt_interaction = {
 
 	desc = adopt_interaction_desc
 	use_diplomatic_range = yes
-	
+
 	is_shown = {
 		OR = {
 			# Cultures that default with this tradition should still be able to adopt
 			scope:actor.culture = { has_cultural_parameter = allows_adoption }
-			NOT = { 
+			NOT = {
 				has_game_rule = no_adoption
 			}
 		}
-		NOT = { 
+		NOT = {
 			scope:recipient = scope:actor
 		}
 		scope:actor = {
@@ -125,12 +125,12 @@ adopt_interaction = {
 	}
 
 	is_valid = {
-		
+
 	}
 
 	is_valid_showing_failures_only = {
 	}
-	
+
 	on_accept = {
 		show_as_tooltip = {
 			adopt_effect = {
@@ -142,7 +142,7 @@ adopt_interaction = {
 			scope:actor = { trigger_event = adoption.0001 }
 		}
 	}
-	
+
 	cost = {
 		renown = {
 			value = {
@@ -283,7 +283,7 @@ adopt_interaction = {
 		ai_recipients = scripted_relations
 		max = 20
 	}
-	
+
 	ai_accept = {
 		base = 0
 		modifier = { # My parents are alive
@@ -320,9 +320,9 @@ adopt_interaction = {
 			exists = mother
 			mother = { is_alive = yes }
 			opinion = {
-					value >= medium_positive_opinion
-					target = mother
-				}
+				value >= medium_positive_opinion
+				target = mother
+			}
 		}
 		modifier = { # I like my father
 			add = -10
@@ -396,7 +396,7 @@ adopt_interaction = {
 			has_no_particular_noble_roots_trigger = no
 		}
 		modifier = { # We are so alike ^^
-			add = { 
+			add = {
 				value = 5
 				if = {
 					limit = {
@@ -438,9 +438,9 @@ adopt_interaction = {
 			has_trait = ambitious
 		}
 	}
-	
+
 	ai_frequency = 120
-	
+
 	ai_will_do = {
 		base = 50
 
@@ -560,7 +560,7 @@ adopt_interaction = {
 				}
 			}
 		}
-		
+
 		modifier = { # I will not adopt filthy filthy heretics
 			factor = 0
 			faith = {

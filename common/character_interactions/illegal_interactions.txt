@@ -46,8 +46,8 @@ dress_interaction = {
 
 start_contraception_interaction = {
 	desc = start_contraception_interaction.desc
-    	category = interaction_category_friendly
-    	use_diplomatic_range = yes
+	category = interaction_category_friendly
+	use_diplomatic_range = yes
 
 	is_shown = {
 		scope:recipient = {
@@ -70,8 +70,8 @@ start_contraception_interaction = {
 
 stop_contraception_interaction = {
 	desc = stop_contraception_interaction.desc
-    	category = interaction_category_friendly
-    	use_diplomatic_range = yes
+	category = interaction_category_friendly
+	use_diplomatic_range = yes
 
 	is_shown = {
 		scope:recipient = {

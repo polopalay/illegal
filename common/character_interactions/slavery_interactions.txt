@@ -12,7 +12,7 @@
 		}
 	}
 	auto_accept = yes
-	
+
 	on_accept = {
 		enslave_effect = { SLAVE = scope:recipient OWNER = scope:actor }
 	}
@@ -20,15 +20,15 @@
 	ai_targets = { ai_recipients = prisoners }
 	ai_frequency = 12
 	ai_potential = { is_at_war = no }
-	
+
 	ai_will_do = {
 		base = 0
-		
+
 		opinion_modifier = {
 			opinion_target = scope:recipient
 			multiplier = -1
 		}
-		
+
 		ai_value_modifier = {
 			ai_compassion = -1
 		}
@@ -71,18 +71,18 @@ buy_slave_interaction = {
 	populate_recipient_list = {
 		scope:recipient = {
 			every_courtier = { limit = { has_trait = slave } add_to_list = characters }
-			
+
 		}
 	}
-	
+
 	on_accept = {
 		scope:actor = {
 			pay_short_term_gold = { target = scope:recipient gold = minor_gold_value }
 			add_courtier = scope:secondary_recipient
 		}
 	}
-	
-	ai_targets = { 
+
+	ai_targets = {
 		ai_recipients = spouses
 		ai_recipients = family
 		ai_recipients = children
@@ -168,14 +168,14 @@ sell_slave_interaction = {
 			every_courtier = { limit = { has_trait = slave } add_to_list = characters }
 		}
 	}
-	
+
 	on_accept = {
 		scope:recipient = {
 			pay_short_term_gold = { target = scope:actor gold = minor_gold_value }
 			add_courtier = scope:secondary_recipient
 		}
 	}
-	
+
 	ai_accept = {
 		base = 0
 		opinion_modifier = {
@@ -246,7 +246,7 @@ free_slave_interaction = {
 			add_opinion = { target = scope:actor modifier = free_slave_opinion }
 		}
 	}
-	
+
 	ai_targets = {
 		ai_recipients = spouses
 		ai_recipients = family
@@ -295,7 +295,7 @@ forced_labor_interaction = {
 		}
 	}
 	auto_accept = yes
-	
+
 	on_accept = {
 		scope:recipient = {
 			add_character_modifier = forced_labor
@@ -306,7 +306,7 @@ forced_labor_interaction = {
 	ai_targets = { ai_recipients = courtiers }
 	ai_potential = { always = yes }
 	ai_frequency = 12
-	
+
 	ai_will_do = {
 		base = 0
 		modifier = {
@@ -382,10 +382,11 @@ extortion_interaction = {
 	is_shown = {
 		scope:recipient = {
 			has_trait = slave
+			gold > 0
 		}
 	}
 	auto_accept = yes
-	
+
 	on_accept = {
 		scope:recipient = {
 			pay_short_term_gold = { target = scope:actor gold = gold }
@@ -396,7 +397,7 @@ extortion_interaction = {
 	ai_targets = { ai_recipients = courtiers }
 	ai_potential = { always = yes }
 	ai_frequency = 12
-	
+
 	ai_will_do = {
 		base = 0
 		modifier = {

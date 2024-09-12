@@ -45,49 +45,26 @@
 		add_prestige_level = -6
 
 		add_opinion = { target = scope:new_owner modifier = enslaved_opinion }
-		every_close_family_member = {
-			limit = { NOT = { this = scope:new_owner } }
-			add_to_temporary_list = victim_family_list
-		}
+
 		every_spouse = {
-			limit = {
-				NOR = { this = scope:new_owner is_in_list = victim_family_list }
-			}
-			add_to_temporary_list = victim_family_list
+			limit = { NOT = { this = scope:new_owner } }
+			add_opinion = { target = scope:new_owner modifier = enslaved_close_family_opinion }
 		}
-		every_in_list = {
-			list = victim_family_list
-			add_opinion = { target = scope:new_owner modifier = enslaved_close_family_opinion } 
-		}
-		every_dynasty_member = {
-			limit = {
-				NOR = { this = scope:new_owner is_in_list = victim_family_list }
-			}
-			add_to_temporary_list = victim_dynasty_list
-		}
-		every_in_list = {
-			list = victim_dynasty_list
-			add_opinion = { target = scope:new_owner modifier = enslaved_dynasty_opinion }
+		every_close_family_member = {
+			limit = { NOT = { this = scope:new_owner is_spouse_of = scope:new_slave } }
+			add_opinion = { target = scope:new_owner modifier = enslaved_close_family_opinion }
 		}
 		every_relation = {
 			type = friend
-			limit = {
-				NOR = { this = scope:new_owner is_in_list = victim_family_list is_in_list = victim_dynasty_list }
-			}
-			add_to_list = friend_list
+			limit = { NOT = { this = scope:new_owner is_spouse_of = scope:new_slave is_close_family_of = scope:new_slave } }
+			add_opinion = { target = scope:new_owner modifier = enslaved_friend_opinion }
 		}
 		every_relation = {
 			type = lover
-			limit = {
-				NOR = { this = scope:new_owner is_in_list = victim_family_list is_in_list = victim_dynasty_list is_in_list = friend_list }
-			}
-			add_to_list = friend_list
-		}
-		every_in_list = {
-			list = friend_list
+			limit = { NOT = { this = scope:new_owner  is_spouse_of = scope:new_slave is_close_family_of = scope:new_slave has_relation_friend = scope:new_slave  } }
 			add_opinion = { target = scope:new_owner modifier = enslaved_friend_opinion }
 		}
-			
+
 	}
 
 	scope:new_owner = {

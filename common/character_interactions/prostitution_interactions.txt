@@ -1,37 +1,36 @@
 ﻿prostitute_interaction = {
 	icon = prostitute_interaction
 	desc = prostitute_interaction.desc
-    	category = interaction_category_diplomacy
-	ignores_pending_interaction_block = yes
-    	use_diplomatic_range = yes
+	category = interaction_category_diplomacy
+	use_diplomatic_range = yes
 	common_interaction = yes
 	cooldown = { months = 12 }
 	cooldown_against_recipient = { months = 12 }
 
-    	is_shown = {
+	is_shown = {
 		NOT = { scope:recipient = scope:actor }
-        	scope:actor = {
-            		is_adult = yes
-            		is_incapable = no
-            		is_imprisoned = no
+		scope:actor = {
+			is_adult = yes
+			is_incapable = no
+			is_imprisoned = no
 			is_travelling = no
 			is_attracted_to_women = yes
-			NOT = { 
-				is_at_war_with = scope:recipient 
+			NOT = {
+				is_at_war_with = scope:recipient
 				has_trait = lovers_pox
 			}
-        	}
-        	scope:recipient = {
+		}
+		scope:recipient = {
 			is_valid_prostitute_trigger = yes
 			NOT = {
 				is_spouse_of = scope:actor
 				is_close_family_of = scope:actor
 			}
-        	}
-    	}
+		}
+	}
 
-    	on_accept = {
-        	scope:actor = {
+	on_accept = {
+		scope:actor = {
 			stress_impact = { base = massive_stress_impact_loss }
 			pay_short_term_gold = { target = scope:recipient gold = 5 }
 			prostitute_effect = { CHARACTER = scope:recipient PREGNANCY_CHANCE = pregnancy_chance }
@@ -73,7 +72,7 @@
 				modifier = { add = 10 scope:recipient = { has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier } }
 				pay_short_term_gold = { target = scope:recipient gold = 2 }
 			}
-    		}
+		}
 	}
 
 	ai_accept = {
@@ -172,32 +171,32 @@
 offer_prostitute_interaction = {
 	icon = prostitute_interaction
 	desc = offer_prostitute_interaction.desc
-    	category = interaction_category_diplomacy
+	category = interaction_category_diplomacy
 	ignores_pending_interaction_block = no
-    	use_diplomatic_range = yes
+	use_diplomatic_range = yes
 	common_interaction = yes
 	cooldown = { months = 24 }
 
-    	is_shown = {
+	is_shown = {
 		NOT = { scope:recipient = scope:actor }
-        	scope:recipient = {
-            		is_adult = yes
-            		is_incapable = no
-            		is_imprisoned = no
+		scope:recipient = {
+			is_adult = yes
+			is_incapable = no
+			is_imprisoned = no
 			is_travelling = no
 			is_attracted_to_women = yes
 			NOT = {
-				is_at_war_with = scope:actor 
+				is_at_war_with = scope:actor
 				has_trait = lovers_pox
 			}
-        	}
-        	scope:actor = {
+		}
+		scope:actor = {
 			OR = {
 				is_valid_prostitute_trigger = yes
 				any_courtier = { is_valid_prostitute_trigger = yes }
 			}
-        	}
-    	}
+		}
+	}
 
 	populate_recipient_list = {
 		scope:actor = {
@@ -212,12 +211,12 @@ offer_prostitute_interaction = {
 		}
 	}
 
-    	on_accept = {
-        	scope:recipient = {
+	on_accept = {
+		scope:recipient = {
 			stress_impact = { base = massive_stress_impact_loss }
 			prostitute_effect = { CHARACTER = scope:secondary_recipient PREGNANCY_CHANCE = pregnancy_chance }
 			pay_short_term_gold = { target = scope:actor gold = 3 }
-			pay_short_term_gold = { target = scope:secondary_recipient gold = 2 } 
+			pay_short_term_gold = { target = scope:secondary_recipient gold = 2 }
 			random = {
 				chance = 10
 				modifier = { add = 10 has_trait = generous }
@@ -256,7 +255,7 @@ offer_prostitute_interaction = {
 				modifier = { add = 10 scope:secondary_recipient = { has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier } }
 				pay_short_term_gold = { target = scope:secondary_recipient gold = 2 }
 			}
-    		}
+		}
 	}
 
 	ai_accept = {
@@ -324,17 +323,17 @@ start_prostitution_interaction = {
 	icon = start_prostitution_interaction
 	desc = start_prostitution_interaction.desc
 	extra_icon = hook_icon
-    	category = interaction_category_friendly
-    	use_diplomatic_range = yes
+	category = interaction_category_friendly
+	use_diplomatic_range = yes
 	common_interaction = yes
 
-    	is_shown = {
-        	scope:actor = {
-            		is_adult = yes
+	is_shown = {
+		scope:actor = {
+			is_adult = yes
 			is_ruler = yes
-        	}
-        	scope:recipient = {
-            		is_adult = yes
+		}
+		scope:recipient = {
+			is_adult = yes
 			is_female = yes
 			NOT = { has_trait = prostitute }
 			OR = {
@@ -345,8 +344,8 @@ start_prostitution_interaction = {
 					is_imprisoned_by = scope:actor
 				}
 			}
-        	}
-    	}
+		}
+	}
 
 	is_valid = {
 		scope:recipient = {
@@ -361,14 +360,14 @@ start_prostitution_interaction = {
 						any_courtier = {
 							has_trait = prostitute
 							count < 5
-						}	
+						}
 					}
 				}
 			}
 		}
 	}
 
-    	on_accept = {
+	on_accept = {
 		scope:recipient = {
 			add_trait = prostitute
 			if = {
@@ -378,8 +377,8 @@ start_prostitution_interaction = {
 		}
 		scope:actor = {
 			if = {
-				limit = { 
-					NOT = { is_liege_or_above_of = scope:recipient } 
+				limit = {
+					NOT = { is_liege_or_above_of = scope:recipient }
 					NOT = { scope:recipient = scope:actor }
 				}
 				add_courtier = scope:recipient
@@ -392,7 +391,7 @@ start_prostitution_interaction = {
 				use_hook = scope:recipient
 			}
 		}
-    	}
+	}
 
 	auto_accept = {
 		OR = {
@@ -414,7 +413,7 @@ start_prostitution_interaction = {
 				has_usable_hook = scope:recipient
 			}
 		}
-		flag = hook	
+		flag = hook
 		localization = GENERIC_SPEND_A_HOOK
 	}
 	send_options_exclusive = no
@@ -429,8 +428,8 @@ start_prostitution_interaction = {
 	}
 
 	ai_frequency = 12
-	ai_targets = { 
-		ai_recipients = courtiers 
+	ai_targets = {
+		ai_recipients = courtiers
 		ai_recipients = prisoners
 		ai_recipients = vassals
 		ai_recipients = self
@@ -462,41 +461,41 @@ start_prostitution_interaction = {
 stop_prostitution_interaction = {
 	icon = stop_prostitution_interaction
 	desc = stop_prostitution_interaction.desc
-    	category = interaction_category_friendly
-    	use_diplomatic_range = yes
+	category = interaction_category_friendly
+	use_diplomatic_range = yes
 	common_interaction = yes
 
-    	is_shown = {
-        	scope:actor = {
-            		is_adult = yes
+	is_shown = {
+		scope:actor = {
+			is_adult = yes
 			is_ruler = yes
-        	}
-        	scope:recipient = {
-            		is_adult = yes
+		}
+		scope:recipient = {
+			is_adult = yes
 			is_female = yes
 			has_trait = prostitute
 			OR = {
 				scope:actor = scope:recipient
 				is_courtier_of = scope:actor
 			}
-        	}
-    	}
+		}
+	}
 
 
-    	on_accept = {
+	on_accept = {
 		remove_trait = prostitute
-    	}
+	}
 
 	auto_accept = yes
 
 	ai_frequency = 12
-	ai_targets = { 
-		ai_recipients = courtiers 
+	ai_targets = {
+		ai_recipients = courtiers
 		ai_recipients = vassals
 	}
 	ai_potential = { always = yes }
-	ai_will_do = { 
-		base = 0 
+	ai_will_do = {
+		base = 0
 		modifier = {
 			add = 100
 			scope:recipient = {

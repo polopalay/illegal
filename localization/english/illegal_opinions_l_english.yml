@@ -3,7 +3,6 @@
   prostitute_shunned_opinion: "Known [GetTrait('prostitute').GetName( GetNullCharacter )]"
   enslaved_opinion: "Enslaved me"
   enslaved_close_family_opinion: "Enslaved close family member"
-  enslaved_dynasty_opinion: "Enslave dynasty member"
   enslaved_friend_opinion: "Enslave friend"
   free_slave_opinion: "Freed me"
   extortion_opinion: "Extorted me"
