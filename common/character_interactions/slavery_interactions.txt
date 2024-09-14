@@ -265,7 +265,26 @@ free_slave_interaction = {
 	on_accept = {
 		scope:recipient = {
 			remove_trait = slave
+			remove_character_modifier = forced_labor
 			add_opinion = { target = scope:actor modifier = free_slave_opinion }
+			every_spouse = {
+				limit = { NOT = { this = scope:new_owner } }
+				add_opinion = { target = scope:new_owner modifier = free_slave_close_family_opinion }
+			}
+			every_close_family_member = {
+				limit = { NOT = { this = scope:new_owner is_spouse_of = scope:new_slave } }
+				add_opinion = { target = scope:new_owner modifier = free_slave_close_family_opinion }
+			}
+			every_relation = {
+				type = friend
+				limit = { NOT = { this = scope:new_owner is_spouse_of = scope:new_slave is_close_family_of = scope:new_slave } }
+				add_opinion = { target = scope:new_owner modifier = free_slave_friend_opinion }
+			}
+			every_relation = {
+				type = lover
+				limit = { NOT = { this = scope:new_owner  is_spouse_of = scope:new_slave is_close_family_of = scope:new_slave has_relation_friend = scope:new_slave  } }
+				add_opinion = { target = scope:new_owner modifier = free_slave_friend_opinion }
+			}
 		}
 	}
 

@@ -32,6 +32,18 @@ free_slave_opinion = {
 	decaying = yes
 }
 
+free_slave_close_family_opinion = {
+	opinion = 50
+	years = 50
+	decaying = yes
+}
+
+free_slave_friend_opinion = {
+	opinion = 25
+	years = 50
+	decaying = yes
+}
+
 extortion_opinion = {
 	opinion = -25
 	years = 10

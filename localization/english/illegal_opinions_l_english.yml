@@ -5,6 +5,8 @@
   enslaved_close_family_opinion: "Enslaved close family member"
   enslaved_friend_opinion: "Enslave friend"
   free_slave_opinion: "Freed me"
+  free_slave_close_family_opinion: "Freed close family member"
+  free_slave_friend_opinion: "Freed friend"
   extortion_opinion: "Extorted me"
   forced_labor_opinion: "Forced labor"
   ordinary_labor_opinion: "Ordinary labor"
